@@ -1,0 +1,305 @@
+/* 
+#c6d166 - Молодой росток
+#5c821a - Растение
+#d2ecb4 - Светло-зеленый
+#ffffff - Белый
+*/
+@import url('https://fonts.googleapis.com/css2?family=Baskervville+SC&display=swap');
+
+body {
+    font-family: "Baskervville SC", serif;
+    background-color: #d2ecb4;
+}
+
+/* header */
+
+header{
+    font-size: 1.2em;
+    background-color: #c6d166;
+}
+
+footer {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    background-color: #c6d166;
+    font-size: 1.2em;
+  }
+
+.navbar-nav {
+    display: flex;
+    flex-direction: row;
+}
+
+.nav-link {
+    color: #ffffff;
+    font-weight: bold;
+    margin-right: 0.5em;
+}
+
+
+.navbar-nav .nav-link.active {
+    color: black;
+    border-top: 3px solid black;
+}
+
+.navbar-nav .nav-link:hover {
+    color: black;
+}
+
+.logio-logo>img{
+    width: 35px;
+}
+
+.logio-logo:hover,
+.sidebar-logo:hover {
+    opacity: 0.5;    
+}
+
+.btn {
+    color: #ffffff;;
+    font-weight: bold;
+    border: 2px solid black;
+    padding: 0;
+}
+
+.d-flex>input[type="search"] {
+    border: 2px solid black; /* Колір рамки */
+}
+
+.dropdown-menu {
+    background-color: #c6d166;
+}
+.dropdown-item:hover {
+    background-color: #c6d166;
+}
+
+/* section */
+
+.carousel-item img{
+    border-top-left-radius: 15%;
+    border-top-right-radius: 15%;
+    border-bottom-left-radius: 15%;
+    border-bottom-right-radius: 15%;
+}
+
+.carousel-text-box {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-style: italic;
+    font-weight: bold;
+    font-size: 2em;
+}
+
+.sidebar-logo {
+    color: black;
+    border: 0;
+}
+
+.sidebar-cat {
+    color: black;
+    background-color: #d2ecb4;
+    border: none;
+    font-weight: bold;
+    font-size: 1.2em;
+}
+
+.sidebar-cat:hover {
+    opacity: 0.5;
+}
+
+.dropdown-toggle::after {
+    display: none;
+}
+
+.sidebar-cat-menu {
+    background-color: #d2ecb4;
+}
+
+/* sections basket */
+
+.input-group .btn,
+.input-group input[type="text"] {
+    height: 30px;
+    margin: 0;
+}
+
+.input-group input[type="text"] {
+    width: 20px;
+}
+
+.order-link-button {
+    text-decoration: none;
+    font-size: 18px;
+    color: black;
+    font-weight: bold;
+}
+
+.order-link-button:hover {
+    color: black;
+    opacity: 0.7;
+}
+
+.basket-bg {
+    background-color:#c6d166cb;
+    border: 3px solid black;
+}
+
+/* calegory */
+
+.dropdown-toggle::after {
+    content: none;
+  }
+  
+  .custom-shadow {
+    box-shadow: 2px 2px 10px 7px #f2059f51;
+  }
+  
+  .product_id {
+    color: gray;
+    font-size: 20px;
+    font-family: 'Times New Roman', Times, serif;
+  }
+
+  .card-title {
+    font-weight: bold;
+  }
+
+  .card-text {
+    color: #000;
+  }
+
+  .card-body {
+    background-color: #c6d16665;
+  }
+  
+  .badge.bg-warning.text-dark {
+    position: absolute;
+    top: 10px;
+    right: 5px;
+    z-index: 1;
+    padding: 5px 10px;
+    border-radius: 3px;
+    font-size: 1rem;
+  }
+  
+  .badge-banner {
+    top: 80%;
+    border-radius: 15px;
+    font-size: 0.7rem;
+  }
+
+  .basket-add,
+  .btn-product {
+    border: none;
+  }
+
+  .basket-add:hover,
+  .btn-product:hover {
+    opacity: 0.7;
+  }
+
+  .btn-product {
+    text-decoration: none;
+    color: black;
+    font-weight: bold;
+  }
+
+.justify-content-between p {
+    font-size: 24px;
+  }
+
+.pagination-nav .page-link{
+    background-color: #c6d166;
+    border: 1.5px solid black;
+}
+
+.pagination-nav a {
+    font-size: 18px;
+    font-weight: bold;
+}
+
+/* product */
+
+.product-img {
+    width: 500px;
+    height: 300px;
+    border: 2px solid black;
+    border-radius: 5%;
+}
+
+.bg-product {
+    background-color: #c6d166;
+}
+
+/* login */
+
+.bg-login {
+    background-color: #c6d16665;
+    border: 2px solid black;
+}
+
+
+
+.bg-input:focus {
+    background-color:#c6d16665; /* Білий колір фону при фокусі */
+    color: black;; /* Чорний колір тексту при фокусі */
+    outline: none; /* Видаляє стандартне підсвічування фокуса */
+}
+
+/* profile */
+
+.bg-accordion {
+    background-color:#c6d16665;
+}
+
+
+.accordion-button {
+    background-color: transparent !important; /* Прибирає фон */
+    border: none; /* Якщо потрібно прибрати бордер */
+    color: inherit; /* Залишає колір тексту як у батьківського елемента */
+    font-weight: bold;
+    font-size: 1.0em;
+}
+
+.accordion-button:focus {
+    
+    box-shadow: none; /* Прибирає тінь при фокусі */
+    color: inherit; /* Залишає колір тексту як у батьківського елемента */
+}
+
+.bg-accordion-order {
+    background-color: #c6d166;
+}
+
+@media (max-width: 770px) {
+    .sidebar-menu {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .sidebar-menu .dropdown,
+    .sidebar-menu .sidebar-logo,
+    .sidebar-menu form {
+        flex: 1;
+        margin: 0 5px;
+    }
+
+    .sidebar-menu .dropdown-menu,
+    .sidebar-menu form .dropdown-menu {
+        position: absolute;
+        width: 100%;
+    }
+
+    .sidebar-menu .modal-dialog {
+        width: 100%;
+        max-width: none;
+    }
+
+    .sidebar-menu .form-check {
+        flex: 1;
+    }
+}

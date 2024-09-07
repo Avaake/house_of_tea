@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block content %}
+    <div class="col-lg-10">
+        <h1 class="text-dark fs-3 fw-bold">{{ content }}</h1>
+        <h3 class="text-dark">{{ text_on_page }}</h3>
+    </div>
+{% endblock %}
+
+{% block footer %}
+    <footer class="py-4">
+        <p class="m-0 text-center text-white">House of Tea</p>
+    </footer>
+{% endblock %}

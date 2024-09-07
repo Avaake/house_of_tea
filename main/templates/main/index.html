@@ -1,0 +1,75 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block content %}
+    <div class="col-lg-10">
+        <h1 class="text-dark fs-3 fw-bold">{{ content }}</h1>
+        <div class="row">
+            <div class="col-lg-10">
+                <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
+                    <div class="carousel-indicators">
+                        <button type="button" data-bs-target="#carouselExampleIndicators"
+                                data-bs-slide-to="0" class="active" aria-current="true"
+                                aria-label="Slide 1"></button>
+                        <button type="button" data-bs-target="#carouselExampleIndicators"
+                                data-bs-slide-to="1" aria-label="Slide 2"></button>
+                        <button type="button" data-bs-target="#carouselExampleIndicators"
+                                data-bs-slide-to="2" aria-label="Slide 3"></button>
+                    </div>
+                    <div class="carousel-inner">
+                        <div class="carousel-item active ">
+                            <div class="row">
+                                <div class="col-lg-8">
+                                    <img src="{% static 'source/images/pexels-lilartsy-1793035.jpg' %}"
+                                         class="d-block w-100" alt="image slide 1">
+                                </div>
+                                <div class="col-lg-3 carousel-text-box">
+                                    <p>"Чайний лист, як і мудрість, розкривається в гарячій воді."</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="carousel-item ">
+                            <div class="row">
+                                <div class="col-lg-8">
+                                    <img src="{% static 'source/images/pexels-mareefe-1638280.jpg' %}"
+                                         class="d-block w-100" alt="image slide 2">
+                                </div>
+                                <div class="col-lg-3 carousel-text-box">
+                                    <p>"В хорошій компанії навіть проста чашка чаю - це свято."</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="carousel-item ">
+                            <div class="row">
+                                <div class="col-lg-8">
+                                    <img src="{% static 'source/images/pexels-osmachko-230477.jpg' %}"
+                                         class="d-block w-100" alt="image slide 3">
+                                </div>
+                                <div class="col-lg-3 carousel-text-box">
+                                    <p>"Якщо людина не має чаю в собі, вона не може зрозуміти істину і красу."</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <button class="carousel-control-prev" type="button"
+                            data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Previous</span>
+                    </button>
+                    <button class="carousel-control-next" type="button"
+                            data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Next</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block footer %}
+    <footer class="py-4">
+        <p class="m-0 text-center text-white">House of Tea</p>
+    </footer>
+{% endblock %}
