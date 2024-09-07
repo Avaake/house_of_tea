@@ -21,11 +21,11 @@ db.sqlite3-journal
 */migrations/*
 
 # Static files
-staticfiles/
-static/
+#staticfiles/
+#static/
 
 # Media files
-media/
+#media/
 
 # Virtual environments
 env/
