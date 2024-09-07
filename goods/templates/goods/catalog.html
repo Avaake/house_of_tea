@@ -1,0 +1,226 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block catalog_filter %}
+    <div class="dropdown mb-2">
+        <button class="btn sidebar-cat dropdown-toggle p-2" type="button" data-bs-toggle="dropdown"
+                aria-expanded="false">
+            Фільтри
+        </button>
+
+        <form action="" method="get" class="dropdown-menu sidebar-cat-menu" data-bs-theme="dark">
+            <div class=" form-check range-filter-container">
+                <label for="minRange">Мінімальна сума:</label>
+                <input type="range" id="minRange" name="minRange" min="0" max="1000" value="1"
+                       oninput="updateMinValue(this.value)">
+                <span id="minValue">0</span> $
+
+                <label for="maxRange">Максимальна сума:</label>
+                <input type="range" id="maxRange" name="maxRange" min="0" max="1000" value="1000"
+                       oninput="updateMaxValue(this.value)">
+                <span id="maxValue">1000</span> $
+            </div>
+
+            <div class="form-check mx-3">
+                <input class="form-check-input" type="checkbox" name="on_sale" id="flexCheckDefault"
+                       value="on">
+                <input type="hidden" name="q" value="request.GET.q">
+                <label class="form-check-label" for="flexCheckDefault">
+                    Акційні товари
+                </label>
+            </div>
+            <p class=" mx-3 mt-3">Сортувати:</p>
+            <div class="form-check mx-3">
+                <input class="form-check-input" type="radio" name="order_by" id="flexRadioDefault1"
+                       value="default" checked>
+                <label class="form-check-label" for="flexRadioDefault1">
+                    За замовчуванням
+                </label>
+            </div>
+            <div class="form-check mx-3">
+                <input class="form-check-input" type="radio" name="order_by" id="flexRadioDefault2"
+                       value="price">
+                <label class="form-check-label" for="flexRadioDefault2">
+                    Від дешевих до дорогих
+                </label>
+            </div>
+            <div class="form-check mx-3">
+                <input class="form-check-input" type="radio" name="order_by" id="flexRadioDefault3"
+                       value="-price">
+                <label class="form-check-label" for="flexRadioDefault3">
+                    Від дорогих до дешевих
+                </label>
+            </div>
+            <button type="submit" class="btn btn-primary mx-3 mt-3">Застосувати</button>
+        </form>
+    </div>
+{% endblock %}
+
+{% block content %}
+    <div class="col-lg-10">
+        <div class="row">
+            <!-- карта товара -->
+            <div class="col-lg-4 p-4">
+                <div class="card border-primary rounded custom-shadow">
+                    <a href="/products/product.html"><img src="{% static 'source/images/pexels-mareefe-1638280.jpg' %}"
+                                                          class="card-img-top" alt="..."></a>
+                    <div class="card-body">
+                        <h5 class="card-title"><a class="order-link-button"
+                                                  href="/products/product.html">Card title</a></h5>
+                        <p class="card-text text-truncate">Some quick example text to build on the card
+                            title and make up the bulk of the card's content.</p>
+                        <p class="product_id">id: 02265</p>
+                        <div class="d-flex justify-content-between">
+                            <p><s>100</s> $</p>
+                            <p><strong>90.00 $</strong></p>
+                            <span class="badge bg-warning text-dark">Скидка 10.00 %</span>
+                            <!-- <p><strong>100.00 $</strong></p> -->
+                            <a href="#" class="btn basket-add">
+                                <img class="mx-1" src="{% static 'source/icons/cart-plus.svg' %}" alt="Catalog Icon"
+                                     width="32" height="32">
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- карта товара -->
+            <div class="col-lg-4 p-4">
+                <div class="card border-primary rounded custom-shadow">
+                    <a href="/products/product.html"><img src="{% static 'source/images/pexels-mareefe-1638280.jpg' %}"
+                                                          class="card-img-top" alt="..."></a>
+                    <div class="card-body">
+                        <h5 class="card-title"><a class="order-link-button"
+                                                  href="/products/product.html">Card title</a></h5>
+                        <p class="card-text text-truncate">Some quick example text to build on the card
+                            title and make up the bulk of the card's content.</p>
+                        <p class="product_id">id: 02265</p>
+                        <div class="d-flex justify-content-between">
+                            <p><s>100</s> $</p>
+                            <p><strong>90.00 $</strong></p>
+                            <span class="badge bg-warning text-dark">Скидка 10.00 %</span>
+                            <!-- <p><strong>100.00 $</strong></p> -->
+                            <a href="#" class="btn basket-add">
+                                <img class="mx-1" src="{% static 'source/icons/cart-plus.svg' %}" alt="Catalog Icon"
+                                     width="32" height="32">
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- карта товара -->
+            <div class="col-lg-4 p-4">
+                <div class="card border-primary rounded custom-shadow">
+                    <a href="/products/product.html"><img src="{% static 'source/images/pexels-mareefe-1638280.jpg' %}"
+                                                          class="card-img-top" alt="..."></a>
+                    <div class="card-body">
+                        <h5 class="card-title"><a class="order-link-button"
+                                                  href="/products/product.html">Card title</a></h5>
+                        <p class="card-text text-truncate">Some quick example text to build on the card
+                            title and make up the bulk of the card's content.</p>
+                        <p class="product_id">id: 02265</p>
+                        <div class="d-flex justify-content-between">
+                            <p><s>100</s> $</p>
+                            <p><strong>90.00 $</strong></p>
+                            <span class="badge bg-warning text-dark">Скидка 10.00 %</span>
+                            <!-- <p><strong>100.00 $</strong></p> -->
+                            <a href="#" class="btn basket-add">
+                                <img class="mx-1" src="{% static 'source/icons/cart-plus.svg' %}" alt="Catalog Icon"
+                                     width="32" height="32">
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- карта товара -->
+            <div class="col-lg-4 p-4">
+                <div class="card border-primary rounded custom-shadow">
+                    <a href="/products/product.html"><img src="{% static 'source/images/pexels-mareefe-1638280.jpg' %}"
+                                                          class="card-img-top" alt="..."></a>
+                    <div class="card-body">
+                        <h5 class="card-title"><a class="order-link-button"
+                                                  href="/products/product.html">Card title</a></h5>
+                        <p class="card-text text-truncate">Some quick example text to build on the card
+                            title and make up the bulk of the card's content.</p>
+                        <p class="product_id">id: 02265</p>
+                        <div class="d-flex justify-content-between">
+                            <p><s>100</s> $</p>
+                            <p><strong>90.00 $</strong></p>
+                            <span class="badge bg-warning text-dark">Скидка 10.00 %</span>
+                            <!-- <p><strong>100.00 $</strong></p> -->
+                            <a href="#" class="btn basket-add">
+                                <img class="mx-1" src="{% static 'source/icons/cart-plus.svg' %}" alt="Catalog Icon"
+                                     width="32" height="32">
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- карта товара -->
+            <div class="col-lg-4 p-4">
+                <div class="card border-primary rounded custom-shadow">
+                    <a href="/products/product.html"><img src="{% static 'source/images/pexels-mareefe-1638280.jpg' %}"
+                                                          class="card-img-top" alt="..."></a>
+                    <div class="card-body">
+                        <h5 class="card-title"><a class="order-link-button"
+                                                  href="/products/product.html">Card title</a></h5>
+                        <p class="card-text text-truncate">Some quick example text to build on the card
+                            title and make up the bulk of the card's content.</p>
+                        <p class="product_id">id: 02265</p>
+                        <div class="d-flex justify-content-between">
+                            <p><s>100</s> $</p>
+                            <p><strong>90.00 $</strong></p>
+                            <span class="badge bg-warning text-dark">Скидка 10.00 %</span>
+                            <!-- <p><strong>100.00 $</strong></p> -->
+                            <a href="#" class="btn basket-add">
+                                <img class="mx-1" src="{% static 'source/icons/cart-plus.svg' %}" alt="Catalog Icon"
+                                     width="32" height="32">
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- карта товара -->
+            <div class="col-lg-4 p-4">
+                <div class="card border-primary rounded custom-shadow">
+                    <a href="/products/product.html"><img src="{% static 'source/images/pexels-mareefe-1638280.jpg' %}"
+                                                          class="card-img-top" alt="..."></a>
+                    <div class="card-body">
+                        <h5 class="card-title"><a class="order-link-button"
+                                                  href="/products/product.html">Card title</a></h5>
+                        <p class="card-text text-truncate">Some quick example text to build on the card
+                            title and make up the bulk of the card's content.</p>
+                        <p class="product_id">id: 02265</p>
+                        <div class="d-flex justify-content-between">
+                            <p><s>100</s> $</p>
+                            <p><strong>90.00 $</strong></p>
+                            <span class="badge bg-warning text-dark">Скидка 10.00 %</span>
+                            <!-- <p><strong>100.00 $</strong></p> -->
+                            <a href="#" class="btn basket-add">
+                                <img class="mx-1" src="{% static 'source/icons/cart-plus.svg' %}" alt="Catalog Icon"
+                                     width="32" height="32">
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <!-- пагінация -->
+        <nav aria-label="Page navigation example">
+            <ul class="pagination justify-content-center my-4">
+                <div class="d-flex pagination-nav">
+                    <li class="page-item disabled">
+                        <a class="page-link">Previous</a>
+                    </li>
+                    <li class="page-item"><a class="page-link" href="#">1</a></li>
+                    <li class="page-item"><a class="page-link" href="#">2</a></li>
+                    <li class="page-item"><a class="page-link" href="#">3</a></li>
+                    <li class="page-item">
+                        <a class="page-link" href="#">Next</a>
+                    </li>
+                </div>
+            </ul>
+        </nav>
+    </div>
+{% endblock %}
