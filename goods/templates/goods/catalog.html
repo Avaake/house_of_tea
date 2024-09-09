@@ -65,7 +65,7 @@
             <div class="col-lg-4 p-4">
                 <div class="card border-primary rounded custom-shadow">
                     {% if product.image %}
-                        <a href="/products/product.html">
+                        <a href="{% url "catalog:product" product.slug %}">
                             <img src="{{ product.image.url }}" class="card-img-top bg-accordion" alt="{{ product.name }}">
                         </a>
                     {% else %}
@@ -73,7 +73,7 @@
                     {% endif %}
                     <div class="card-body">
                         <h5 class="card-title"><a class="order-link-button"
-                                                  href="/products/product.html">{{ product.name }}</a></h5>
+                                                  href="{% url "catalog:product" product.slug %}">{{ product.name }}</a></h5>
                         <p class="card-text text-truncate">{{ product.description|truncatechars:35 }}</p>
                         <p class="product_id">id: {{ product.product_id }}</p>
                         <div class="d-flex justify-content-between">
