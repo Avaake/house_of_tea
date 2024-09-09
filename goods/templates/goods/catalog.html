@@ -75,12 +75,17 @@
                         <h5 class="card-title"><a class="order-link-button"
                                                   href="/products/product.html">{{ product.name }}</a></h5>
                         <p class="card-text text-truncate">{{ product.description|truncatechars:35 }}</p>
-                        <p class="product_id">id: 02265</p>
+                        <p class="product_id">id: {{ product.product_id }}</p>
                         <div class="d-flex justify-content-between">
-                            <p>{{ product.weight}} г</p>
-                            <p><s>{{ product.price }}</s> грн</p>
-                            <p><strong>90.00 грн</strong></p>
-                            <span class="badge bg-warning text-dark">Скидка 10.00 %</span>
+                            {% if product.discount %}
+                                <p>50 г</p>
+                                <p><s>{{ product.price }}</s> грн</p>
+                                <p><strong>{{ product.sell_price }} грн</strong></p>
+                                <span class="badge bg-warning text-dark">Скидка {{ product.discount }} %</span>
+                            {% else %}
+                                <p>50 г</p>
+                                <p><strong>{{ product.price }} грн</strong></p>
+                            {% endif %}
                             <!-- <p><strong>100.00 $</strong></p> -->
                             <a href="#" class="btn basket-add">
                                 <img class="mx-1" src="{% static 'source/icons/cart-plus.svg' %}" alt="Catalog Icon"
