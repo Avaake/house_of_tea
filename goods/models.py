@@ -43,7 +43,7 @@ class Products(models.Model):
         default=0.00, max_digits=7, decimal_places=2, verbose_name="Ціна"
     )
     discount = models.DecimalField(
-        default=0.00, max_digits=7, decimal_places=2, verbose_name="Знижка у %"
+        default=0.00, max_digits=4, decimal_places=2, verbose_name="Знижка у %"
     )
     quantity = models.PositiveIntegerField(default=0, verbose_name="Кількість товару")
     category = models.ForeignKey(to=Categories, on_delete=models.CASCADE)
