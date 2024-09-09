@@ -80,13 +80,10 @@
                              height="16">
                     </button>
                     <ul class="dropdown-menu sidebar-cat-menu" data-bs-theme="dark">
-                        <li><a class="dropdown-item text-dark" href="{% url 'goods:index' %}">Всі товари</a></li>
-                        <li><a class="dropdown-item text-dark" href="{% url 'goods:index' %}">Зелений чай</a></li>
-                        <li><a class="dropdown-item text-dark" href="{% url 'goods:index' %}">Чорний чай</a></li>
-                        <li><a class="dropdown-item text-dark" href="{% url 'goods:index' %}">Білий чай</a></li>
-                        <li><a class="dropdown-item text-dark" href="{% url 'goods:index' %}">Пуер</a></li>
-                        <li><a class="dropdown-item text-dark" href="{% url 'goods:index' %}">Трав'яний чай</a></li>
-                        <li><a class="dropdown-item text-dark" href="{% url 'goods:index' %}">Фруктовий чай</a></li>
+                        {% for category in categories %}
+                            <li><a class="dropdown-item text-dark" href="{% url 'goods:index' %}">{{ category.name }}</a></li>
+                        {% endfor %}
+                        
                     </ul>
                 </div>
                 <div>

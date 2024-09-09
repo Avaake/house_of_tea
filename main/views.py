@@ -1,11 +1,16 @@
 from django.shortcuts import render
+from unicodedata import category
+
+from goods.models import Categories
 
 
 def index(request):
+    categories = Categories.objects.all()
 
     context = {
         "title": "Home - Головна",
         "content": "Магазин чаю House of Tea",
+        "categories": categories,
     }
 
     return render(
