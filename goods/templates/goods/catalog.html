@@ -64,8 +64,13 @@
             <!-- карта товара -->
             <div class="col-lg-4 p-4">
                 <div class="card border-primary rounded custom-shadow">
-                    <a href="/products/product.html"><img src="{% static product.image %}"
-                                                          class="card-img-top bg-accordion" alt="{{ product.name }}"></a>
+                    {% if product.image %}
+                        <a href="/products/product.html">
+                            <img src="{{ product.image.url }}" class="card-img-top bg-accordion" alt="{{ product.name }}">
+                        </a>
+                    {% else %}
+                        <img src="{% static 'source/images/Not found image.png' %}" class="card-img-top bg-accordion" alt="{{ product.name }}">
+                    {% endif %}
                     <div class="card-body">
                         <h5 class="card-title"><a class="order-link-button"
                                                   href="/products/product.html">{{ product.name }}</a></h5>
