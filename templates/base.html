@@ -39,7 +39,7 @@
                                 <li><a class="dropdown-item nav-link" href="/users/profile.html">Особстий
                                     кабінет</a></li>
                                 <li><a class="dropdown-item nav-link" href="/carts/cart.html">Корзина</a></li>
-                                <li><a class="dropdown-item nav-link" href="#">Адмін панель</a></li>
+                                <li><a class="dropdown-item nav-link" href="{% url 'admin:index' %}">Адмін панель</a></li>
                             </ul>
                         </div>
                     </li>
@@ -80,16 +80,15 @@
                              height="16">
                     </button>
                     <ul class="dropdown-menu sidebar-cat-menu" data-bs-theme="dark">
-                        <li><a class="dropdown-item text-dark" href="/products/catalog.html">Всі товари</a></li>
-                        <li><a class="dropdown-item text-dark" href="/products/catalog.html">Пуер</a></li>
-                        <li><a class="dropdown-item text-dark" href="/products/catalog.html">Улун</a></li>
-                        <li><a class="dropdown-item text-dark" href="/products/catalog.html">Білий чай</a></li>
-                        <li><a class="dropdown-item text-dark" href="/products/catalog.html">Зелений чай</a></li>
-                        <li><a class="dropdown-item text-dark" href="/products/catalog.html">Червоний чай</a></li>
-                        <li><a class="dropdown-item text-dark" href="/products/catalog.html">Жовтий чай</a></li>
+                        <li><a class="dropdown-item text-dark" href="{% url 'goods:index' %}">Всі товари</a></li>
+                        <li><a class="dropdown-item text-dark" href="{% url 'goods:index' %}">Зелений чай</a></li>
+                        <li><a class="dropdown-item text-dark" href="{% url 'goods:index' %}">Чорний чай</a></li>
+                        <li><a class="dropdown-item text-dark" href="{% url 'goods:index' %}">Білий чай</a></li>
+                        <li><a class="dropdown-item text-dark" href="{% url 'goods:index' %}">Пуер</a></li>
+                        <li><a class="dropdown-item text-dark" href="{% url 'goods:index' %}">Трав'яний чай</a></li>
+                        <li><a class="dropdown-item text-dark" href="{% url 'goods:index' %}">Фруктовий чай</a></li>
                     </ul>
                 </div>
-
                 <div>
                     <button type="button" class="btn sidebar-logo d-flex p-3" data-bs-toggle="modal"
                             data-bs-target="#cartModal">
