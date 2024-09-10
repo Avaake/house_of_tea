@@ -83,7 +83,7 @@
                     <ul class="dropdown-menu sidebar-cat-menu" data-bs-theme="dark">
                         {% tag_categories as categories %}
                         {% for category in categories %}
-                            <li><a class="dropdown-item text-dark" href="{% url 'goods:index' %}">{{ category.name }}</a></li>
+                            <li><a class="dropdown-item text-dark" href="{% url 'catalog:index' category.slug %}">{{ category.name }}</a></li>
                         {% endfor %}
                         
                     </ul>
