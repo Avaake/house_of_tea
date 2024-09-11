@@ -16,9 +16,7 @@ def q_search(query):
 
     # Пошук за ключовими словами в описі та назві
     q_object = Q()
-    keywords = [
-        word for word in query.split() if len(word) > 2
-    ]  # Слова довші за 2 символи
+    keywords = [word for word in query.split() if len(word) > 2]
 
     for token in keywords:
         q_object |= Q(description__icontains=token) | Q(name__icontains=token)
