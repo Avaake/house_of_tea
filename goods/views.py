@@ -1,6 +1,9 @@
-from django.shortcuts import render, get_list_or_404
+from django.shortcuts import render, get_list_or_404, redirect
 from goods.models import Products
 from django.core.paginator import Paginator
+from goods.utils import q_search
+from django.urls import reverse
+from django.contrib import messages
 
 
 def catalog(request, category_slug=None):
@@ -9,13 +12,16 @@ def catalog(request, category_slug=None):
     order_by = request.GET.get("order_by", None)
     min_range = request.GET.get("minRange", 0)
     max_range = request.GET.get("maxRange", 1000)
-
-    print(on_sale, order_by, max_range, min_range)
+    query = request.GET.get("q", None)
 
     if category_slug == "all":
         goods = Products.objects.all().order_by("id")
+    elif query or query == "":
+        goods = q_search(query)
     else:
-        goods = get_list_or_404(Products.objects.filter(category__slug=category_slug))
+        goods = get_list_or_404(
+            Products.objects.filter(category__slug=category_slug)
+        ).order_by("id")
 
     if on_sale:
         goods = goods.filter(discount__gt=0)

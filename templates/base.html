@@ -48,7 +48,7 @@
                         <a class="nav-link" href="{% url 'main:about' %}">Більше про нас</a>
                     </li>
                 </ul>
-                <form class="d-flex" role="search">
+                <form class="d-flex" role="search" action="{% url 'catalog:sreach' %}" method="get">
                     <a href="/users/login.html">
                         <button type="button" class="btn logio-logo mx-2" style="border: none;" id="modalButton"
                                 aria-expanded="false">
@@ -58,7 +58,7 @@
                         </button>
                     </a>
                     <input class="form-control me-2 p-0 px-1" style="width: 200px;" type="search"
-                           placeholder="Search" aria-label="Search">
+                           placeholder="Search" aria-label="Search" name="q">
                     <button class="btn btn-outline-success p-0 px-1" type="submit">Search</button>
                 </form>
             </div>
