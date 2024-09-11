@@ -1,0 +1,170 @@
+[
+{
+    "model": "goods.products",
+    "pk": 1,
+    "fields": {
+        "name": "Зелений чай «Чарівниця»",
+        "slug": "zelenij-chaj-charivnicya",
+        "description": "Суміш китайського зеленого і білого чаю з додаванням ягід годжі, відомих на Сході як «ягоди безсмертя», родзинок, цедри апельсина, листя ожини і троянди, шматочків малини, квітів граната, білої акації і блакитної мальви, ароматизована натуральними екстрактами бергамоту і малини. Дійсно чарівний чай!",
+        "image": "goods_images/zelenyy-chay-volshebnitsa-44321194930249-removebg-preview.png",
+        "price": "225.00",
+        "discount": "10.00",
+        "quantity": 35,
+        "category": 2
+    }
+},
+{
+    "model": "goods.products",
+    "pk": 2,
+    "fields": {
+        "name": "Зелений чай «Сауасеп»",
+        "slug": "zelenij-chaj-sauasep",
+        "description": "Зелений цейлонський чай, ароматизований соком екзотичного фрукта сауасеп - «сметанне яблуко». Аромат цього чаю дуже яскравий, а смак вдало поєднує свіжість зеленого чаю та незвичну терпкість із солодким присмаком.",
+        "image": "goods_images/zelenyy-chay-sauasep-51028332101902-removebg-preview.png",
+        "price": "150.00",
+        "discount": "0.00",
+        "quantity": 48,
+        "category": 2
+    }
+},
+{
+    "model": "goods.products",
+    "pk": 3,
+    "fields": {
+        "name": "Пу Ер ваговий",
+        "slug": "pu-er-vagovij",
+        "description": "Витриманий Шу Пу Ер з провінції Юннань віком не менше 5 років. Історично склалося так, що зазвичай у Китаї Пу Ери пресують у різні форми і розміри. Ну варто, навіть потрібно, спробувати і ваговий. У розсипному вигляді він швидше дорослішає, смак стає глибшим, аромат посилюється і стає оркестровим. Дуже радимо )",
+        "image": "goods_images/spetsialnyy-chay-pu-er-67838602676323-removebg-preview.png",
+        "price": "175.00",
+        "discount": "5.00",
+        "quantity": 16,
+        "category": 5
+    }
+},
+{
+    "model": "goods.products",
+    "pk": 4,
+    "fields": {
+        "name": "Пу Ер Шу пресований “Лао Вей Дао”",
+        "slug": "pu-er-shu-presovanij-lao-vej-dao",
+        "description": "Відмінний витриманий млинець. Спеціальний купаж для любителів Пу Ера зі старим смаком. Те що треба для регулярних чаювань.",
+        "image": "goods_images/copy_spetsialnyy-chay-pu-er-shu-menkhay.png",
+        "price": "300.00",
+        "discount": "15.00",
+        "quantity": 26,
+        "category": 5
+    }
+},
+{
+    "model": "goods.products",
+    "pk": 5,
+    "fields": {
+        "name": "Чорний чай «Іскри шампанського»",
+        "slug": "chornij-chaj-iskri-shampanskogo",
+        "description": "Незвичайна суміш чорного і зеленого чаїв з додаванням волошки, а також листя і ягід суниці. Має приємний аромат медового літа, який закрутить Вам голову!",
+        "image": "goods_images/chernyy-chay-iskry-shampanskogo-13195572749877-removebg-preview.png",
+        "price": "145.00",
+        "discount": "0.00",
+        "quantity": 67,
+        "category": 3
+    }
+},
+{
+    "model": "goods.products",
+    "pk": 6,
+    "fields": {
+        "name": "Чорний чай «Золотий Юннань»",
+        "slug": "chornij-chaj-zolotij-yunnan",
+        "description": "Выращивается в южной китайской провинции Юннань, знаменитой своими мягкими и слегка дымными чаями. Чай средней крепости с красновато-золотистым настоем и характерным сладким вкусом.",
+        "image": "goods_images/chernyy-chay-zolotoy-unnan-14450018005543-removebg-preview.png",
+        "price": "225.00",
+        "discount": "10.00",
+        "quantity": 14,
+        "category": 3
+    }
+},
+{
+    "model": "goods.products",
+    "pk": 7,
+    "fields": {
+        "name": "Білий чай «Біла півонія»",
+        "slug": "bilij-chaj-bila-pivoniya",
+        "description": "Рідкісний білий китайський чай, який збирають ранньою весною в провінції Фуцзянь на висоті близько 1500 м. Листя не проходить скручування після збору, тільки коротку ферментацію і відразу ж сушиться. Чайні бруньки при цьому зберігають свій сріблястий колір, тому такі чаї називають «білими». При заварюванні дає прозорий настій зі свіжим ароматом і оксамитовим квітковим смаком. Неймовірно тонка насолода!",
+        "image": "goods_images/belyy-chay-belyy-pion-35710889070447-removebg-preview.png",
+        "price": "395.00",
+        "discount": "20.00",
+        "quantity": 44,
+        "category": 4
+    }
+},
+{
+    "model": "goods.products",
+    "pk": 8,
+    "fields": {
+        "name": "Білий чай «Срібні голки Бай Хао»",
+        "slug": "bilij-chaj-sribni-golki-baj-hao",
+        "description": "Цей винятковий білий чай виробляється в провінції Фуцзянь і входить до десятки найкращих чаїв Китаю. Неймовірно трудомісткий у виробництві, під час виготовлення цього чаю використовують тільки найніжніші молоді бруньки, вкриті сріблясто-білими ворсинками. Звідси і висока вартість. Дає блідо-жовтий настій із напрочуд м'яким, солодким смаком.",
+        "image": "goods_images/belyy-chay-serebryanye-igly-bay-khao-74485091841665-removebg-preview.png",
+        "price": "690.00",
+        "discount": "7.00",
+        "quantity": 17,
+        "category": 4
+    }
+},
+{
+    "model": "goods.products",
+    "pk": 9,
+    "fields": {
+        "name": "Фруктова суміш «Сунична симфонія»",
+        "slug": "fruktova-sumish-sunichna-simfoniya",
+        "description": "Натуральная фруктовая смесь на основе каркаде с добавлением кусочков шиповника, яблока, цедры апельсина и лимона, а ягодки земляники – прекрасный и сочный бонус.",
+        "image": "goods_images/fruktovaya-smes-zemlyanichnaya-simfoniya-85154328685917-removebg-preview.png",
+        "price": "150.00",
+        "discount": "0.00",
+        "quantity": 33,
+        "category": 7
+    }
+},
+{
+    "model": "goods.products",
+    "pk": 10,
+    "fields": {
+        "name": "Фруктова суміш «Шалений кролик»",
+        "slug": "fruktova-sumish-shalenij-krolik",
+        "description": "Натуральна фруктова суміш на основі пелюсток суданської троянди з додаванням шматочків банана, ягід смородини та бузини, пелюсток календули та цукрових сердечок. Корисний і смачний чай з прекрасним ароматом.",
+        "image": "goods_images/fruktovaya-smes-bezumnyy-krolik-31009363773142-removebg-preview.png",
+        "price": "160.00",
+        "discount": "3.00",
+        "quantity": 54,
+        "category": 7
+    }
+},
+{
+    "model": "goods.products",
+    "pk": 11,
+    "fields": {
+        "name": "Трав'яна суміш «М'ятна фантазія»",
+        "slug": "travyana-sumish-myatna-fantaziya",
+        "description": "Трав'яна суміш на основі м'яти з додаванням пелюсток суданської троянди і волошки, шматочків яблук, чорноплідної горобини і кірочок шипшини. Натуральний смак, який подарує Вам умиротворення в будь-який час!",
+        "image": "goods_images/travyanaya-smes-myatnaya-fantaziya-77461840711344-removebg-preview.png",
+        "price": "150.00",
+        "discount": "0.00",
+        "quantity": 13,
+        "category": 6
+    }
+},
+{
+    "model": "goods.products",
+    "pk": 12,
+    "fields": {
+        "name": "Трав'яна суміш «Хуторок»",
+        "slug": "travyana-sumish-hutorok",
+        "description": "Натуральна трав'янась суміш, що містить кишмиш, пелюстки суданської троянди, скоринки шипшини, ягоди обліпихи, листя живокосту, малини, суниці та ожини, а також квіти безсмертника. Корисно і натурально!",
+        "image": "goods_images/travyanaya-smes-khutorok-37703146637336-removebg-preview.png",
+        "price": "150.00",
+        "discount": "0.00",
+        "quantity": 21,
+        "category": 6
+    }
+}
+]

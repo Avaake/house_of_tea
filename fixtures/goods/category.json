@@ -1,0 +1,58 @@
+[
+{
+    "model": "goods.categories",
+    "pk": 1,
+    "fields": {
+        "name": "Всі товари",
+        "slug": "all"
+    }
+},
+{
+    "model": "goods.categories",
+    "pk": 2,
+    "fields": {
+        "name": "Зелений чай",
+        "slug": "zelenij-chaj"
+    }
+},
+{
+    "model": "goods.categories",
+    "pk": 3,
+    "fields": {
+        "name": "Чорний чай",
+        "slug": "chornij-chaj"
+    }
+},
+{
+    "model": "goods.categories",
+    "pk": 4,
+    "fields": {
+        "name": "Білий чай",
+        "slug": "bilij-chaj"
+    }
+},
+{
+    "model": "goods.categories",
+    "pk": 5,
+    "fields": {
+        "name": "Пуер",
+        "slug": "puer"
+    }
+},
+{
+    "model": "goods.categories",
+    "pk": 6,
+    "fields": {
+        "name": "Трав'яний чай",
+        "slug": "travyanij-chaj"
+    }
+},
+{
+    "model": "goods.categories",
+    "pk": 7,
+    "fields": {
+        "name": "Фруктовий чай",
+        "slug": "fruktovij-chaj"
+    }
+}
+]
