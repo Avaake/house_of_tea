@@ -1,0 +1,52 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block content %}
+    <div class="col-lg-8">
+        <div class="row">
+            <div class="container mt-5">
+                <div class="row justify-content-center">
+                    <div class="col-md-9 bg-login p-4 mb-4 mx-3 rounded">
+                        <h2 class="text-center mb-4 fw-bold">Реєстрація</h2>
+                        <form>
+                            <div class="row">
+                                <div class="col-md-6 mb-3">
+                                    <label for="firstName" class="form-label">І'мя*</label>
+                                    <input type="text" class="form-control bg-input bg-login" id="firstName"
+                                           placeholder="Введіть ваше ім'я" required>
+                                </div>
+                                <div class="col-md-6 mb-3">
+                                    <label for="email" class="form-label">Email*</label>
+                                    <input type="email" class="form-control bg-input bg-login" id="email"
+                                           placeholder="Введіть вашу електрону пошту" required>
+                                </div>
+                                <div class="col-md-6 mb-3">
+                                    <label for="lastName" class="form-label">Прізвище*</label>
+                                    <input type="text" class="form-control bg-input bg-login" id="lastName"
+                                           placeholder="Введіть ваше прізвище" required>
+                                </div>
+                                <div class="col-md-6 mb-3">
+                                    <label for="password" class="form-label">Пароль*</label>
+                                    <input type="password" class="form-control bg-input bg-login" id="password1"
+                                           placeholder="Введіть пароль" required>
+                                </div>
+                                <div class="col-md-6 mb-3">
+                                    <label for="username" class="form-label">По батькові*</label>
+                                    <input type="text" class="form-control bg-input bg-login" id="username"
+                                           placeholder="Введіть ваше і'мя по батькові" required>
+                                </div>
+                                <div class="col-md-6 mb-3">
+                                    <label for="password2" class="form-label">Пароль*</label>
+                                    <input type="password" class="form-control bg-input bg-login" id="password2"
+                                           placeholder="Повторіть пароль" required>
+                                </div>
+                            </div>
+                            <button type="submit" class="btn btn-product fs-4">Зареєструватися</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

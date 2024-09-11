@@ -1,0 +1,52 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block content %}
+    <div class="col-lg-8">
+        <div class="row">
+            <div class="container mt-5">
+                <div class="row justify-content-center">
+                    <div class="col-md-6 bg-login p-4 mb-4 mx-3 rounded">
+                        <h2 class="text-center mb-4 fw-bold">Авторизація</h2>
+                        <form>
+                            <div class="mb-3">
+                                <label for="username" class="form-label">Ім'я користувача</label>
+                                <input type="text" class="form-control bg-input bg-login" id="username"
+                                       placeholder="Введіть ваше ім'я користувача" required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="password" class="form-label">Пароль</label>
+                                <input type="password" class="form-control bg-input bg-login" id="password"
+                                       placeholder="Введіть ваш пароль" required>
+                            </div>
+                            <button type="submit" class="btn btn-product fs-4">Увійти</button>
+                        </form>
+                        <div class="mt-2">
+                            <a href="#">Забыли пароль?</a> | <a href="/users/registration.html">Створити акаунт</a>
+                        </div>
+                        <hr>
+                        <div class="text-center">
+                            <p class="fs-5 mb-0">Або авторизуйтеся через:</p>
+                            <a href="#" class="btn border-0 text-dark">
+                                <img class="mx-1" src="/source/icons/google.svg" alt="Catalog Icon" width="16"
+                                     height="16">
+                                Google
+                            </a>
+                            <a href="#" class="btn border-0 text-dark">
+                                <img class="mx-1" src="/source/icons/facebook.svg" alt="Catalog Icon" width="16"
+                                     height="16">
+                                Facebook
+                            </a>
+                            <a href="#" class="btn border-0 text-dark">
+                                <img class="mx-1" src="/source/icons/github.svg" alt="Catalog Icon" width="16"
+                                     height="16">
+                                GitHub
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
