@@ -9,5 +9,9 @@ def registration(request):
     pass
 
 
+def profile(request):
+    pass
+
+
 def logout(request):
     pass
