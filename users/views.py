@@ -27,7 +27,12 @@ def profile(request):
     context = {
         "totle": "Мій профіль",
     }
-    return render(request=request, template_name="users/profile.html", context=context)
+    return render(
+        request=request,
+        template_name="users/profile.html",
+        context=context,
+    )
+
 
 def logout(request):
     pass

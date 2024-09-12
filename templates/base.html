@@ -37,7 +37,7 @@
                                 Мії акаунт
                             </a>
                             <ul class="dropdown-menu">
-                                <li><a class="dropdown-item nav-link" href="/users/profile.html">Особстий
+                                <li><a class="dropdown-item nav-link" href="{% url 'users:profile' %}">Особстий
                                     кабінет</a></li>
                                 <li><a class="dropdown-item nav-link" href="/carts/cart.html">Корзина</a></li>
                                 <li><a class="dropdown-item nav-link" href="{% url 'admin:index' %}">Адмін панель</a></li>
@@ -141,7 +141,7 @@
                                                     </div>
                                                     <div class="col-lg-2 p-0">
                                                         <a href="#" class="remove-from-cart" data-cart-id="">
-                                                            <img class="mx-1" src="/source/icons/trash3-fill.svg"
+                                                            <img class="mx-1" src="{% static 'source/icons/trash3-fill.svg' %}"
                                                                  alt="Catalog Icon" width="16" height="16">
                                                         </a>
                                                     </div>
