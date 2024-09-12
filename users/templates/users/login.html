@@ -4,42 +4,64 @@
 
 {% block content %}
     <div class="col-lg-8">
+        {% include 'includes/notifications.html' %}
         <div class="row">
             <div class="container mt-5">
                 <div class="row justify-content-center">
                     <div class="col-md-6 bg-login p-4 mb-4 mx-3 rounded">
                         <h2 class="text-center mb-4 fw-bold">Авторизація</h2>
-                        <form>
+                        <form action="{% url 'users:login' %}" method="post">
+                            {% csrf_token %}
+                            {#                            <div class="mb-3">#}
+                            {#                                <label for="id_email" class="form-label">Имя пользователя</label>#}
+                            {#                                <input type="email" class="form-control bg-input bg-login"#}
+                            {#                                       name="email" id="id_email" placeholder="Введите вашу електрону пошту"#}
+                            {#                                       required>#}
+                            {#                            </div>#}
+                            {#                            <div class="mb-3">#}
+                            {#                                <label for="id_password" class="form-label">Пароль</label>#}
+                            {#                                <input type="password" class="form-control bg-input bg-login" name="password"#}
+                            {#                                       id="id_password" placeholder="Введите ваш пароль" required>#}
+                            {#                            </div>#}
+
                             <div class="mb-3">
-                                <label for="username" class="form-label">Ім'я користувача</label>
-                                <input type="text" class="form-control bg-input bg-login" id="username"
-                                       placeholder="Введіть ваше ім'я користувача" required>
+                                <label for="id_username" class="form-label">Ім'я користувача</label>
+                                <input type="text" class="form-control bg-input bg-login"
+                                       value="{% if form.username.value %}{{ form.username.value }}{% endif %}"
+                                       name="username" id="id_username" placeholder="Введіть ваше ім'я користувача"
+                                       required>
                             </div>
                             <div class="mb-3">
-                                <label for="password" class="form-label">Пароль</label>
-                                <input type="password" class="form-control bg-input bg-login" id="password"
+                                <label for="id_password" class="form-label">Пароль</label>
+                                <input type="password" class="form-control bg-input bg-login"
+                                       name="password" id="id_password"
                                        placeholder="Введіть ваш пароль" required>
                             </div>
+
                             <button type="submit" class="btn btn-product fs-4">Увійти</button>
                         </form>
                         <div class="mt-2">
-                            <a href="#">Забыли пароль?</a> | <a href="{% url 'users:registration' %}">Створити акаунт</a>
+                            <a href="#">Забыли пароль?</a> | <a href="{% url 'users:registration' %}">Створити
+                            акаунт</a>
                         </div>
                         <hr>
                         <div class="text-center">
                             <p class="fs-5 mb-0">Або авторизуйтеся через:</p>
                             <a href="#" class="btn border-0 text-dark">
-                                <img class="mx-1" src="{% static 'source/icons/google.svg' %}" alt="Catalog Icon" width="16"
+                                <img class="mx-1" src="{% static 'source/icons/google.svg' %}" alt="Catalog Icon"
+                                     width="16"
                                      height="16">
                                 Google
                             </a>
                             <a href="#" class="btn border-0 text-dark">
-                                <img class="mx-1" src="{% static 'source/icons/facebook.svg' %}" alt="Catalog Icon" width="16"
+                                <img class="mx-1" src="{% static 'source/icons/facebook.svg' %}" alt="Catalog Icon"
+                                     width="16"
                                      height="16">
                                 Facebook
                             </a>
                             <a href="#" class="btn border-0 text-dark">
-                                <img class="mx-1" src="{% static 'source/icons/github.svg' %}" alt="Catalog Icon" width="16"
+                                <img class="mx-1" src="{% static 'source/icons/github.svg' %}" alt="Catalog Icon"
+                                     width="16"
                                      height="16">
                                 GitHub
                             </a>
