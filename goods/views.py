@@ -2,7 +2,7 @@ from django.shortcuts import render, get_list_or_404
 from goods.models import Products
 from django.core.paginator import Paginator
 from goods.utils import q_search
-from django.db.models import QuerySet
+
 
 
 def catalog(request, category_slug=None):
