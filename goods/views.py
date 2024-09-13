@@ -4,7 +4,6 @@ from django.core.paginator import Paginator
 from goods.utils import q_search
 
 
-
 def catalog(request, category_slug=None):
     page = request.GET.get("page", 1)
     on_sale = request.GET.get("on_sale", None)
