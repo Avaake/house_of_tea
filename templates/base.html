@@ -37,12 +37,15 @@
                                 Мії акаунт
                             </a>
                             <ul class="dropdown-menu">
-                                <li><a class="dropdown-item nav-link" href="{% url 'users:profile' %}">Особстий
-                                    кабінет</a></li>
+                                {% if user.is_authenticated %}
+                                    <li><a class="dropdown-item nav-link" href="{% url 'users:profile' %}">Особстий
+                                        кабінет</a></li>
+                                {% endif %}
                                 <li><a class="dropdown-item nav-link" href="/carts/cart.html">Корзина</a></li>
-                                {% if user.is_staff %}
-                                	<li><a class="dropdown-item nav-link" href="{% url 'admin:index' %}">Адмін панель</a>
-                                {% endif %} 
+                                {% if user.is_staff or user.is_admin %}
+                                    <li>
+                                    <a class="dropdown-item nav-link" href="{% url 'admin:index' %}">Адмін панель</a>
+                                {% endif %}
                                 </li>
                             </ul>
                         </div>

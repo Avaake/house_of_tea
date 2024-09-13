@@ -18,56 +18,85 @@
                          data-bs-parent="#accordionExample">
                         <div class="accordion-body bg-accordion">
                             <div class="px-3">
-                                <form>
+                                <form action="{% url 'users:profile' %}" method="post" enctype="multipart/form-data">
+                                    {% csrf_token %}
                                     <div class="row">
                                         <div class="col-md-3 mb-3 text-center">
-                                            <img src="{% static 'source/images/baseavatar.jpg' %}"
-                                                 alt="Аватар пользователя" class="img-fluid rounded-circle"
-                                                 style="max-width: 100px;">
-                                            <input type="file" class="form-control mt-3" id="avatar"
-                                                   accept="image/*">
+                                            {% if user.image %}
+                                                <img src="{{ user.image.url }}"
+                                                     alt="Аватар пользователя" class="img-fluid rounded-circle"
+                                                     style="max-width: 100px;">
+                                            {% else %}
+                                                <img src="{% static 'source/images/baseavatar.jpg' %}"
+                                                     alt="Аватар пользователя" class="img-fluid rounded-circle"
+                                                     style="max-width: 100px;">
+                                            {% endif %}
+
+                                            <input type="file" class="form-control mt-3" id="id_image"
+                                                   accept="image/" name="image">
+                                            {% if form.image.errors %}
+                                                <div class="alert alert-danger alert-dismissible fade show">{{ form.image.errors }}</div>
+                                            {% endif %}
                                         </div>
                                         <div class="col-md-9">
                                             <div class="row">
                                                 <div class="row">
                                                     <div class="col-md-6 mb-3">
-                                                        <label for="firstName"
+                                                        <label for="id_first_name"
                                                                class="form-label">І'мя*</label>
                                                         <input type="text"
                                                                class="form-control bg-input bg-login"
-                                                               id="firstName" placeholder="Введіть ваше ім'я"
-                                                               required>
+                                                               id="id_first_name" placeholder="Введіть ваше ім'я"
+                                                               value="{{ form.first_name.value }}"
+                                                               name="first_name" required>
+                                                        {% if form.first_name.errors %}
+                                                            <div class="alert alert-danger alert-dismissible fade show">{{ form.first_name.errors }}</div>
+                                                        {% endif %}
                                                     </div>
                                                     <div class="col-md-6 mb-3">
-                                                        <label for="email" class="form-label">Email*</label>
+                                                        <label for="id_email" class="form-label">Email*</label>
                                                         <input type="email"
                                                                class="form-control bg-input bg-login"
-                                                               id="email"
+                                                               id="id_email" name="email"
+                                                               value="{{ form.email.value }}"
                                                                placeholder="Введіть вашу електрону пошту"
                                                                required>
+                                                        {% if form.email.errors %}
+                                                            <div class="alert alert-danger alert-dismissible fade show">{{ form.email.errors }}</div>
+                                                        {% endif %}
                                                     </div>
                                                     <div class="col-md-6 mb-3">
-                                                        <label for="lastName"
+                                                        <label for="id_last_name"
                                                                class="form-label">Прізвище*</label>
                                                         <input type="text" class="form-control bg-login"
-                                                               id="lastName"
+                                                               id="id_last_name" name="last_name"
+                                                               value="{{ form.last_name.value }}"
                                                                placeholder="Введіть ваше прізвище" required>
+                                                        {% if form.last_name.errors %}
+                                                            <div class="alert alert-danger alert-dismissible fade show">{{ form.last_name.errors }}</div>
+                                                        {% endif %}
                                                     </div>
                                                     <div class="col-md-6 mb-3">
-                                                        <label for="username" class="form-label">По
+                                                        <label for="id_username" class="form-label">По
                                                             батькові*</label>
                                                         <input type="text"
                                                                class="form-control bg-input bg-login"
-                                                               id="username"
+                                                               id="id_username" name="username"
+                                                               value="{{ form.username.value }}"
                                                                placeholder="Введіть ваше і'мя по батькові"
                                                                required>
+                                                        {% if form.username.errors %}
+                                                            <div class="alert alert-danger alert-dismissible fade show">{{ form.username.errors }}</div>
+                                                        {% endif %}
                                                     </div>
                                                 </div>
                                             </div>
                                         </div>
-                                        <button type="submit"
-                                                class="btn btn-product mb-2 fs-4">Зберегти
-                                        </button>
+                                        <div style="display: flex; justify-content: center">
+                                            <button type="submit"
+                                                    class="btn btn-product mb-2 fs-4">Зберегти
+                                            </button>
+                                        </div>
                                     </div>
                                 </form>
                             </div>
