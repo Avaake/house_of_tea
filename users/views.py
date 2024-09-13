@@ -1,8 +1,9 @@
-from django.contrib import auth
+from django.contrib import auth, messages
 from django.http import HttpResponseRedirect
 from django.shortcuts import render
 from django.urls import reverse
 from users.forms import UserLoginForm, UserRegisterForm, ProfileForm
+from django.contrib.auth.decorators import login_required
 
 
 def login(request):
@@ -18,6 +19,7 @@ def login(request):
 
             if user:
                 auth.login(request, user)
+                messages.success(request, f"{username}, Вас було авторизовано.")
                 return HttpResponseRedirect(reverse("main:index"))
     else:
         form = UserLoginForm()
@@ -41,6 +43,12 @@ def registration(request):
             form.save()
             user = form.instance
             auth.login(request, user)
+
+            messages.success(
+                request,
+                f"{user.username}, Ви успішно зареєструвалися та авторизовано на сайты.",
+            )
+
             return HttpResponseRedirect(reverse("main:index"))
 
     else:
@@ -57,6 +65,7 @@ def registration(request):
     )
 
 
+@login_required
 def profile(request):
     if request.method == "POST":
         form = ProfileForm(
@@ -78,6 +87,8 @@ def profile(request):
     )
 
 
+@login_required
 def logout(request):
+    messages.success(request, f"{request.user.username}, Всього гарного.")
     auth.logout(request)
     return HttpResponseRedirect(reverse("main:index"))

@@ -10,7 +10,8 @@
             Фільтри
         </button>
 
-        <form action="{% if request.GET.q %}{% url 'catalog:sreach' %}{% else %}{% url 'catalog:index' slug_url %}" {% endif %}
+        <form action="
+                {% if request.GET.q %}{% url 'catalog:sreach' %}{% else %}{% url 'catalog:index' slug_url %}" {% endif %}
               method="get" class="dropdown-menu sidebar-cat-menu" data-bs-theme="dark">
             <div class=" form-check range-filter-container">
                 <label for="minRange">Мінімальна сума:</label>
@@ -37,7 +38,8 @@
             <p class=" mx-3 mt-3">Сортувати:</p>
             <div class="form-check mx-3">
                 <input class="form-check-input" type="radio" name="order_by" id="flexRadioDefault1"
-                       value="default" {% if not request.GET.order_by or request.GET.order_by == 'default' %} checked {% endif %}>
+                       value="default" {% if not request.GET.order_by or request.GET.order_by == 'default' %}
+                       checked {% endif %}>
                 <label class="form-check-label" for="flexRadioDefault1">
                     За замовчуванням
                 </label>
@@ -63,42 +65,46 @@
 
 {% block content %}
     <div class="col-lg-10">
+        {% include 'includes/notifications.html' %}
         <div class="row">
             {% for product in goods %}
-            <!-- карта товара -->
-            <div class="col-lg-4 p-4">
-                <div class="card border-primary rounded custom-shadow">
-                    {% if product.image %}
-                        <a href="{% url "catalog:product" product.slug %}">
-                            <img src="{{ product.image.url }}" class="card-img-top bg-accordion" alt="{{ product.name }}">
-                        </a>
-                    {% else %}
-                        <img src="{% static 'source/images/Not found image.png' %}" class="card-img-top bg-accordion" alt="{{ product.name }}">
-                    {% endif %}
-                    <div class="card-body">
-                        <h5 class="card-title"><a class="order-link-button"
-                                                  href="{% url "catalog:product" product.slug %}">{{ product.name }}</a></h5>
-                        <p class="card-text text-truncate">{{ product.description|truncatechars:35 }}</p>
-                        <p class="product_id">id: {{ product.product_id }}</p>
-                        <div class="d-flex justify-content-between">
-                            {% if product.discount %}
-                                <p>50 г</p>
-                                <p><s>{{ product.price }}</s> грн</p>
-                                <p><strong>{{ product.sell_price }} грн</strong></p>
-                                <span class="badge bg-warning text-dark">Скидка {{ product.discount }} %</span>
-                            {% else %}
-                                <p>50 г</p>
-                                <p><strong>{{ product.price }} грн</strong></p>
-                            {% endif %}
-                            <!-- <p><strong>100.00 $</strong></p> -->
-                            <a href="#" class="btn basket-add">
-                                <img class="mx-1" src="{% static 'source/icons/cart-plus.svg' %}" alt="Catalog Icon"
-                                     width="32" height="32">
+                <!-- карта товара -->
+                <div class="col-lg-4 p-4">
+                    <div class="card border-primary rounded custom-shadow">
+                        {% if product.image %}
+                            <a href="{% url "catalog:product" product.slug %}">
+                                <img src="{{ product.image.url }}" class="card-img-top bg-accordion"
+                                     alt="{{ product.name }}">
                             </a>
+                        {% else %}
+                            <img src="{% static 'source/images/Not found image.png' %}"
+                                 class="card-img-top bg-accordion" alt="{{ product.name }}">
+                        {% endif %}
+                        <div class="card-body">
+                            <h5 class="card-title"><a class="order-link-button"
+                                                      href="{% url "catalog:product" product.slug %}">{{ product.name }}</a>
+                            </h5>
+                            <p class="card-text text-truncate">{{ product.description|truncatechars:35 }}</p>
+                            <p class="product_id">id: {{ product.product_id }}</p>
+                            <div class="d-flex justify-content-between">
+                                {% if product.discount %}
+                                    <p>50 г</p>
+                                    <p><s>{{ product.price }}</s> грн</p>
+                                    <p><strong>{{ product.sell_price }} грн</strong></p>
+                                    <span class="badge bg-warning text-dark">Скидка {{ product.discount }} %</span>
+                                {% else %}
+                                    <p>50 г</p>
+                                    <p><strong>{{ product.price }} грн</strong></p>
+                                {% endif %}
+                                <!-- <p><strong>100.00 $</strong></p> -->
+                                <a href="#" class="btn basket-add">
+                                    <img class="mx-1" src="{% static 'source/icons/cart-plus.svg' %}" alt="Catalog Icon"
+                                         width="32" height="32">
+                                </a>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
             {% endfor %}
 
 

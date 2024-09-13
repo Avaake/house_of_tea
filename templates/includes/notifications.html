@@ -12,3 +12,50 @@
         </div>
     </div>
 {% endif %}
+
+
+<!-- Для оповещений -->
+<div class="container mt-4" style="position: relative; z-index: 1000;">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            {% if messages %}
+                {% for message in messages %}
+                    {% if message.tags == 'success' %}
+                        <div id="notification"
+                             class="position-fixed start-50 translate-middle-x z-3 alert alert-success fade show custom-shadow"
+                             role="alert">
+                            {{ message }}
+                        </div>
+                    {% endif %}
+                    {% if message.tags == 'warning' %}
+                        <div id="notification"
+                             class="position-fixed start-50 translate-middle-x z-3 alert alert-danger fade show custom-shadow"
+                             role="alert">
+                            {{ message }}
+                        </div>
+                    {% endif %}
+                {% endfor %}
+            {% else %}
+                <div id="jq-notification"
+                     class="position-fixed start-50 translate-middle-x z-3 alert alert-success fade show custom-shadow"
+                     style="display: none;" role="alert">
+                </div>
+            {% endif %}
+        </div>
+    </div>
+</div>
+
+<script>
+    setTimeout(function () {
+        let notification = document.getElementById("notification");
+        if (notification) {
+            // Додаємо клас для плавного закриття
+            notification.classList.remove("show");
+            notification.classList.add("fade");
+            // Видаляємо елемент через 500 мс після завершення анімації
+            setTimeout(function () {
+                notification.remove();
+            }, 500);
+        }
+    }, 5000); // 5 секунд
+</script>
