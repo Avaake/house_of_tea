@@ -100,6 +100,17 @@ def profile(request):
     )
 
 
+def users_cart(request):
+    context = {
+        "title": "Кошик",
+    }
+    return render(
+        request=request,
+        template_name="users/users_cart.html",
+        context=context,
+    )
+
+
 @login_required
 def logout(request):
     messages.success(request, f"{request.user.username}, Всього гарного.")

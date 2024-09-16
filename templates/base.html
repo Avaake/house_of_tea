@@ -41,7 +41,7 @@
                                     <li><a class="dropdown-item nav-link" href="{% url 'users:profile' %}">Особстий
                                         кабінет</a></li>
                                 {% endif %}
-                                <li><a class="dropdown-item nav-link" href="/carts/cart.html">Корзина</a></li>
+                                <li><a class="dropdown-item nav-link" href="{% url 'users:users_cart' %}">Кошик</a></li>
                                 {% if user.is_staff or user.is_admin %}
                                     <li>
                                     <a class="dropdown-item nav-link" href="{% url 'admin:index' %}">Адмін панель</a>
@@ -121,57 +121,7 @@
                             <div class="modal-body">
                                 <div class="cantainer" id="cart-items-containe">
                                     <!-- Разметка корзины -->
-                                    <div class="card mb-3 basket-bg shadow-lg">
-                                        <div class="card-header">
-                                            <h5 class="card-title text-center">Товар</h5>
-                                        </div>
-                                        <ul class="list-group list-group-flush">
-                                            <li class="list-group-item basket-bg">
-                                                <div class="row text-center">
-                                                    <div class="col-lg-1 p-0">
-                                                    </div>
-                                                    <div class="col-lg-2 p-0">
-                                                        <div class="input-group">
-                                                                <span class="input-group-btn">
-                                                                    <button type="button"
-                                                                            class="btn btn-dark btn-sm decrement"
-                                                                            data-cart-id=""
-                                                                            data-cart-change-url="">-</button>
-                                                                </span>
-                                                            <input type="text"
-                                                                   class="form-control number m-0 basket-bg" value="1"
-                                                                   readonly>
-                                                            <span class="input-group-btn">
-                                                                    <button type="button"
-                                                                            class="btn btn-dark btn-sm increment"
-                                                                            data-cart-id=""
-                                                                            data-cart-change-url="">+</button>
-                                                                </span>
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-lg-3 p-0">
-                                                        <p>x 100.00 = </p>
-                                                    </div>
-                                                    <div class="col-lg-3 p-0">
-                                                        <strong>100.00 $</strong>
-                                                    </div>
-                                                    <div class="col-lg-2 p-0">
-                                                        <a href="#" class="remove-from-cart" data-cart-id="">
-                                                            <img class="mx-1"
-                                                                 src="{% static 'source/icons/trash3-fill.svg' %}"
-                                                                 alt="Catalog Icon" width="16" height="16">
-                                                        </a>
-                                                    </div>
-                                                </div>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                    <div class="card mb-3 shadow-lg basket-bg">
-                                        <div class="card-footer">
-                                            <p class="float-left">Разом <strong>1</strong> товар(а) на суму</p>
-                                            <h4 class="float-left"><strong>100.00 $</strong></h4>
-                                        </div>
-                                    </div>
+                                    {% include 'carts/includes/included_cart.html' %}
                                     <!-- Конец разметки корзины -->
                                 </div>
                             </div>

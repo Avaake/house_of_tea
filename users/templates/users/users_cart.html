@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+    <div class="col-lg-8 mt-5 p-0" style="border: 3px solid black;">
+        <div class="container-fluid p-0">
+            <div class="bg-accordion p-4 rounded">
+                <h3 class="text-center mb-4 fw-bold fs-1">Кошик</h3>
+                <div class="container" id="cart-items-container">
+                    <!-- Разметка корзины -->
+                    {% include 'carts/includes/included_cart.html' %}
+                    <!-- Конец разметки корзины -->
+                    <div class="modal-footer">
+                        <a class="order-link-button p-1 m-0 fs-4" href="/orders/create_order.html">Перейти до
+                            оформлення</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
