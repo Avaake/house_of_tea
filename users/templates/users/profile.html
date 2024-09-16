@@ -4,7 +4,6 @@
 
 {% block content %}
     <div class="col-lg-8 mt-5 p-0" style="border: 3px solid black;">
-        {% include 'includes/notifications.html' %}
         <div class="container-fluid p-0">
             <div class="accordion" id="accordionExample">
                 <!-- Профиль -->
@@ -21,6 +20,7 @@
                             <div class="px-3">
                                 <form action="{% url 'users:profile' %}" method="post" enctype="multipart/form-data">
                                     {% csrf_token %}
+                                    {% include 'includes/notifications.html' %}
                                     <div class="row">
                                         <div class="col-md-3 mb-3 text-center">
                                             {% if user.image %}

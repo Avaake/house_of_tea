@@ -20,6 +20,12 @@ def login(request):
             if user:
                 auth.login(request, user)
                 messages.success(request, f"{username}, Вас було авторизовано.")
+
+                redirect_page = request.POST.get("next", None)
+                print(redirect_page)
+                if redirect_page and redirect_page != reverse("users:login"):
+                    return HttpResponseRedirect(request.POST.get("next", None))
+
                 return HttpResponseRedirect(reverse("main:index"))
     else:
         form = UserLoginForm()
@@ -75,11 +81,18 @@ def profile(request):
         )
         if form.is_valid():
             form.save()
+            messages.success(
+                request,
+                f"Оновлено",
+            )
             return HttpResponseRedirect(reverse("users:profile"))
     else:
         form = ProfileForm(instance=request.user)
 
-    context = {"totle": "Мій профіль", "form": form}
+    context = {
+        "title": "Мій профіль",
+        "form": form,
+    }
     return render(
         request=request,
         template_name="users/profile.html",
