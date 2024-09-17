@@ -2,6 +2,10 @@
 
 {% load static %}
 
+{% block modal_cart %}
+	{% include "includes/cart_button.html" %}
+{% endblock %}
+
 {% block catalog_filter %}
     <div class="dropdown mb-2">
         <button class="btn sidebar-cat dropdown-toggle p-2" type="button" data-bs-toggle="dropdown"

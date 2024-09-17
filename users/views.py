@@ -22,7 +22,6 @@ def login(request):
                 messages.success(request, f"{username}, Вас було авторизовано.")
 
                 redirect_page = request.POST.get("next", None)
-                print(redirect_page)
                 if redirect_page and redirect_page != reverse("users:login"):
                     return HttpResponseRedirect(request.POST.get("next", None))
 

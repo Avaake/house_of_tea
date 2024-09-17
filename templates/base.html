@@ -100,37 +100,10 @@
 
                     </ul>
                 </div>
-                <div>
-                    <button type="button" class="btn sidebar-logo d-flex p-3" data-bs-toggle="modal"
-                            data-bs-target="#cartModal">
-                        <img class="mx-1" src="{% static 'source/icons/cart4.svg' %}" alt="Backet icon" width="43"
-                             height="34">
-                        <span id="goods-in-cart-count">0</span>
-                    </button>
-                </div>
                 <!-- Разметка модального окна корзины -->
-                <div class="modal fade" id="cartModal" tabindex="-1" aria-labelledby="cartModalLabel"
-                     aria-hidden="true">
-                    <div class="modal-dialog modal-dialog-scrollable">
-                        <div class="modal-content basket-bg">
-                            <div class="modal-header">
-                                <h3>Кошик</h3>
-                                <button type="button" class="btn-close" data-bs-dismiss="modal"
-                                        aria-label="Close"></button>
-                            </div>
-                            <div class="modal-body">
-                                <div class="cantainer" id="cart-items-containe">
-                                    <!-- Разметка корзины -->
-                                    {% include 'carts/includes/included_cart.html' %}
-                                    <!-- Конец разметки корзины -->
-                                </div>
-                            </div>
-                            <div class="modal-footer">
-                                <a class="order-link-button p-1 m-0" href="#">Перейти до оформлення</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                {% block modal_cart %}
+                	
+                {% endblock %}
                 <!-- Закончилась разметка модального окна -->
 
                 {% block catalog_filter %}{% endblock %}

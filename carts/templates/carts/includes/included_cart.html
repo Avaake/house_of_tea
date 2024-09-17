@@ -1,50 +1,56 @@
 {% load static %}
+{% load carts_tags %}
 
-<div class="card mb-3 basket-bg shadow-lg">
-    <div class="card-header">
-        <h5 class="card-title text-center">Товар</h5>
-    </div>
-    <ul class="list-group list-group-flush">
-        <li class="list-group-item basket-bg">
-            <div class="row text-center">
-                <div class="col-lg-1 p-0">
-                </div>
-                <div class="col-lg-2 p-0">
-                    <div class="input-group">
+{% user_carts request as carts %}
+
+<div class="card mb-2 basket-bg shadow-lg">
+    {% for cart in carts %}
+        <div class="card-header">
+            <h5 class="card-title m-0">{{ cart.product.name }}</h5>
+        </div>
+        <ul class="list-group list-group-flush">
+            <li class="list-group-item basket-bg pb-0 pt-1">
+                <div class="row text-center">
+                    <div class="col-lg-1 p-0">
+                    </div>
+                    <div class="col-lg-2 p-0">
+                        <div class="input-group">
                         <span class="input-group-btn">
                             <button type="button" class="btn btn-dark btn-sm decrement"
                                     data-cart-id="" data-cart-change-url=""
                                     style="width: 20px;">-</button>
                         </span>
-                        <input type="text" class="form-control number m-0 basket-bg"
-                               value="1" readonly style="max-width: 60%;">
-                        <span class="input-group-btn">
+                            <input type="text" class="form-control number m-0 basket-bg"
+                                   value="{{ cart.quantity }}" readonly style="max-width: 60%;">
+                            <span class="input-group-btn">
                             <button type="button" class="btn btn-dark btn-sm increment"
                                     data-cart-id="" data-cart-change-url=""
                                     style="width: 20px;">+</button>
                         </span>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 p-0">
+                        <p class="m-2">x {{ cart.product.sell_price }} = </p>
+                    </div>
+                    <div class="col-lg-3 p-0">
+                        <strong>{{ cart.products_price }} грн</strong>
+                    </div>
+                    <div class="col-lg-2 p-0">
+                        <a href="{% url 'cart:cart_remove' 1 %}" class="remove-from-cart" data-cart-id="">
+                            <img class="mx-1"
+                                 src="{% static 'source/icons/trash3-fill.svg' %}"
+                                 alt="Catalog Icon" width="16" height="16">
+                        </a>
                     </div>
                 </div>
-                <div class="col-lg-3 p-0">
-                    <p>x 100.00 = </p>
-                </div>
-                <div class="col-lg-3 p-0">
-                    <strong>100.00 $</strong>
-                </div>
-                <div class="col-lg-2 p-0">
-                    <a href="{% url 'cart:cart_remove' 1 %}" class="remove-from-cart" data-cart-id="">
-                        <img class="mx-1"
-                             src="{% static 'source/icons/trash3-fill.svg' %}"
-                             alt="Catalog Icon" width="16" height="16">
-                    </a>
-                </div>
-            </div>
-        </li>
-    </ul>
+            </li>
+        </ul>
+    {% endfor %}
+
 </div>
-<div class="card mb-3 shadow-lg basket-bg">
+<div class="card mb-2 shadow-lg basket-bg">
     <div class="card-footer">
-        <p class="float-left">Разом <strong>1</strong> товар(а) на суму</p>
-        <h4 class="float-left"><strong>100.00 $</strong></h4>
+        <p class="float-left m-0">Разом <strong>{{ carts.total_quantity }}</strong> товар(у) на суму</p>
+        <h4 class="float-left m-0"><strong>{{ carts.total_price }} грн</strong></h4>
     </div>
 </div>
