@@ -97,7 +97,7 @@
                                     <p><strong>{{ product.price }} грн</strong></p>
                                 {% endif %}
                                 <!-- <p><strong>100.00 $</strong></p> -->
-                                <a href="#" class="btn basket-add">
+                                <a href="{% url 'carts:cart_add' product.slug %}" class="btn basket-add">
                                     <img class="mx-1" src="{% static 'source/icons/cart-plus.svg' %}" alt="Catalog Icon"
                                          width="32" height="32">
                                 </a>

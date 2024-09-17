@@ -45,7 +45,7 @@ class Cart(models.Model):
         verbose_name = "Кошик"
         verbose_name_plural = "Кошик"
 
-    object = CartQueryset().as_manager()
+    objects = CartQueryset.as_manager()
 
     def products_price(self) -> float:
         return round(self.product.sell_price() * self.quantity, 2)
