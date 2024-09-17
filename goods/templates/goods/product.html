@@ -3,7 +3,7 @@
 {% load static %}
 
 {% block modal_cart %}
-	{% include "includes/cart_button.html" %}
+    {% include "includes/cart_button.html" %}
 {% endblock %}
 
 {% block catalog_filter %}
@@ -99,8 +99,8 @@
                         <p class="card-text fs-4 mb-0">Ціна: <strong>{{ product.sell_price }} грн</strong></p>
                         <h5 class="card-title">{{ product.name }}</h5>
                         <p class="card-text fs-4">{{ product.description }}</p>
-                        <a href="{% url 'cart:cart_add' product.slug %}" class="btn-product fs-3 add-to-cart">Добавить в
-                            корзину</a>
+                        <a href="{% url 'cart:cart_add' %}" class="btn-product fs-3 add-to-cart"
+                           data-product-id={{ product.id }}>{% csrf_token %}Добавить в корзину</a>
                     </div>
                 </div>
 
