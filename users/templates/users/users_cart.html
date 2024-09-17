@@ -10,10 +10,12 @@
                     <!-- Разметка корзины -->
                     {% include 'carts/includes/included_cart.html' %}
                     <!-- Конец разметки корзины -->
-                    <div class="modal-footer">
-                        <a class="order-link-button p-1 m-0 fs-4" href="/orders/create_order.html">Перейти до
-                            оформлення</a>
-                    </div>
+                    {% if carts %}
+                        <div class="modal-footer">
+                            <a class="order-link-button p-1 m-0 fs-4" href="/orders/create_order.html">Перейти до
+                                оформлення</a>
+                        </div>
+                    {% endif %}
                 </div>
             </div>
         </div>

@@ -36,7 +36,7 @@
                         <strong>{{ cart.products_price }} грн</strong>
                     </div>
                     <div class="col-lg-2 p-0">
-                        <a href="{% url 'cart:cart_remove' 1 %}" class="remove-from-cart" data-cart-id="">
+                        <a href="{% url 'cart:cart_remove' cart.id %}" class="remove-from-cart" data-cart-id="">
                             <img class="mx-1"
                                  src="{% static 'source/icons/trash3-fill.svg' %}"
                                  alt="Catalog Icon" width="16" height="16">
