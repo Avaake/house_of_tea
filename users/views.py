@@ -4,6 +4,7 @@ from django.shortcuts import render
 from django.urls import reverse
 from users.forms import UserLoginForm, UserRegisterForm, ProfileForm
 from django.contrib.auth.decorators import login_required
+from carts.models import Cart
 
 
 def login(request):
@@ -17,9 +18,14 @@ def login(request):
                 password=password,
             )
 
+            session_key = request.session.session_key
+
             if user:
                 auth.login(request, user)
                 messages.success(request, f"{username}, Вас було авторизовано.")
+
+                if session_key:
+                    Cart.objects.filter(session_key=session_key).update(user=user)
 
                 redirect_page = request.POST.get("next", None)
                 if redirect_page and redirect_page != reverse("users:login"):
@@ -46,8 +52,12 @@ def registration(request):
         form = UserRegisterForm(data=request.POST)
         if form.is_valid():
             form.save()
+            session_key = request.session.session_key
             user = form.instance
             auth.login(request, user)
+
+            if session_key:
+                Cart.objects.filter(session_key=session_key).update(user=user)
 
             messages.success(
                 request,
