@@ -1,6 +1,6 @@
 from django.contrib import auth, messages
 from django.http import HttpResponseRedirect
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.urls import reverse
 from users.forms import UserLoginForm, UserRegisterForm, ProfileForm
 from django.contrib.auth.decorators import login_required
@@ -90,10 +90,7 @@ def profile(request):
         )
         if form.is_valid():
             form.save()
-            messages.success(
-                request,
-                f"Оновлено",
-            )
+            messages.success(request, f"Оновлено")
             return HttpResponseRedirect(reverse("users:profile"))
     else:
         form = ProfileForm(instance=request.user)
@@ -110,18 +107,11 @@ def profile(request):
 
 
 def users_cart(request):
-    context = {
-        "title": "Кошик",
-    }
-    return render(
-        request=request,
-        template_name="users/users_cart.html",
-        context=context,
-    )
+    return render(request, "users/users_cart.html")
 
 
 @login_required
 def logout(request):
     messages.success(request, f"{request.user.username}, Всього гарного.")
     auth.logout(request)
-    return HttpResponseRedirect(reverse("main:index"))
+    return redirect(reverse("main:index"))

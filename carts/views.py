@@ -3,7 +3,6 @@ from django.template.loader import render_to_string
 from carts.utils import get_user_carts
 from goods.models import Products
 from carts.models import Cart
-from django.shortcuts import render, redirect
 
 
 def cart_add(request):

@@ -1,7 +1,4 @@
 {% load static %}
-{% load carts_tags %}
-
-{% user_carts request as carts %}
 
 <div class="card mb-2 basket-bg shadow-lg">
     {% for cart in carts %}
@@ -17,15 +14,21 @@
                         <div class="input-group">
                         <span class="input-group-btn">
                             <button type="button" class="btn btn-dark btn-sm decrement"
-                                    data-cart-id="{{ cart.id }}" data-cart-change-url="{% url 'cart:cart_change' %}"
-                                    style="width: 20px;">{% csrf_token %}-</button>
+                                    data-cart-id="{{ cart.id }}"
+                                    data-cart-change-url="{% url 'cart:cart_change' %}"
+                                    style="width: 20px;">
+                                    {% csrf_token %}
+                                -</button>
                         </span>
                             <input type="text" class="form-control number m-0 basket-bg"
                                    value="{{ cart.quantity }}" readonly style="max-width: 60%;">
                             <span class="input-group-btn">
                             <button type="button" class="btn btn-dark btn-sm increment"
-                                    data-cart-id="{{ cart.id }}" data-cart-change-url="{% url 'cart:cart_change' %}"
-                                    style="width: 20px;">{% csrf_token %}+</button>
+                                    data-cart-id="{{ cart.id }}"
+                                    data-cart-change-url="{% url 'cart:cart_change' %}"
+                                    style="width: 20px;">
+                                    {% csrf_token %}
+                                    +</button>
                         </span>
                         </div>
                     </div>

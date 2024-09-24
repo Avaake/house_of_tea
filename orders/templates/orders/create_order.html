@@ -1,0 +1,110 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load carts_tags %}
+
+{% block content %}
+    <div class="col-lg-8 mt-5 p-0" style="border: 3px solid black;">
+        <div class="container-fluid p-0">
+            <div class="bg-accordion p-4 rounded">
+                <h3 class="text-center mb-4 fw-bold fs-1">Обраний товар</h3>
+                <div class="container" id="cart-items-container">
+                    <!-- Разметка корзины -->
+                    {% user_carts request as carts %}
+                    {% include "carts/includes/included_cart.html" %}
+                    <!-- Конец разметки корзины -->
+                </div>
+                <div class="container p-0 mt-3">
+                    <h3 class="card-title text-center fs-2">Детальніше о замовлені</h3>
+                    <div class="card bg-accordion m-3" style="border: 3px solid black;">
+                        <div class="card-body">
+                            <form action="{% url 'order:create_order' %}" method="post">
+                                {% csrf_token %}
+                                <div class="row">
+                                    <div class="col-md-6 mt-3">
+                                        <label for="id_first_name" class="form-label">І'мя*</label>
+                                        <input type="text" class="form-control m-0 basket-bg"
+                                               id="id_first_name" name="first_name"
+                                               value="{% if form.first_name.value %}
+                                                      {{ form.first_name.value }}{% endif %}"
+                                               placeholder="Введыть ваше і'мя" required>
+                                        {% if form.first_name.errors %}
+                                            <div class="alert alert-danger alert-dismissible fade show">{{ form.first_name.errors }}</div>
+                                        {% endif %}
+                                    </div>
+                                    <div class="col-md-6 mt-3">
+                                        <label for="id_last_name" class="form-label">Прізвище*</label>
+                                        <input type="text" class="form-control m-0 basket-bg"
+                                               id="id_last_name" name="last_name"
+                                               value=" {% if form.last_name.value %}
+                                                       {{ form.last_name.value }}{% endif %}"
+                                               placeholder="Введыть ваше прізвище" required>
+                                        {% if form.last_name.errors %}
+                                            <div class="alert alert-danger alert-dismissible fade show">{{ form.last_name.errors }}</div>
+                                        {% endif %}
+                                    </div>
+                                    <div class="col-md-6 mt-3">
+                                        <label for="id_phone_number" class="form-label">Номер
+                                            телефону*:</label>
+                                        <input type="text" class="form-control m-0 basket-bg"
+                                               id="id_phone_number" name="phone_number"
+                                               value="{% if form.phone_number.value %}
+                                                      {{ form.phone_number.value }}{% endif %}"
+                                               placeholder="В форматі: XXX-XXX-XX-XX" required>
+                                        {% if form.phone_number.errors %}
+                                            <div class="alert alert-danger alert-dismissible fade show">{{ form.phone_number.errors }}</div>
+                                        {% endif %}
+                                    </div>
+                                    <div class="col-md-12 mt-3">
+                                        <label for="delivery" class="form-label fs-5">Оберіть спосіб
+                                            доставки:</label>
+                                        <div class="form-check form-check-inline mx-2  fs-5">
+                                            <input class="form-check-input" type="radio" name="requires_delivery"
+                                                   id="delivery_np" value="1" checked>
+                                            <label class="form-check-label" for="delivery_np">Новою поштою</label>
+                                        </div>
+                                        <div class="form-check form-check-inline mx-2  fs-5">
+                                            <input class="form-check-input" type="radio" name="requires_delivery"
+                                                   id="delivery_self" value="0">
+                                            <label class="form-check-label" for="delivery_self">Самовивіз</label>
+                                        </div>
+                                    </div>
+                                    <div class="mb-3" id="deliveryAddressField">
+                                        <label for="id_delivery_address" class="form-label">Адрес доставки*:</label>
+                                        <textarea class="form-control bg-login" id="id_delivery_address"
+                                                  value="{% if form.delivery_address.value %}
+                                                         {{ form.delivery_address.value }}{% endif %}"
+                                                  name="delivery_address" rows="2"></textarea>
+                                        {% if form.delivery_address.errors %}
+                                            <div class="alert alert-danger alert-dismissible fade show">{{ form.delivery_address.errors }}</div>
+                                        {% endif %}
+                                    </div>
+                                    <div class="col-md-12 mb-3">
+                                        <label class="form-label fs-5">Оберіть опосіб доставки:</label>
+                                        <div class="form-check form-check-inline">
+                                            <input class="form-check-input fs-5 mx-2" type="radio"
+                                                   name="payment_on_get"
+                                                   id="id_payment_on_get" value="0" checked>
+                                            <label class="form-check-label" for="id_payment_on_get">Оплата
+                                                картою</label>
+                                        </div>
+                                        <div class="form-check form-check-inline">
+                                            <input class="form-check-input fs-5 mx-2" type="radio"
+                                                   name="payment_on_get"
+                                                   id="id_payment_on_get" value="1">
+                                            <label class="form-check-label" for="id_payment_on_get">При
+                                                отриманні</label>
+                                        </div>
+                                    </div>
+
+                                </div>
+                                <button type="submit" class="btn btn-product fs-4">Офортити
+                                    замовлення
+                                </button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
