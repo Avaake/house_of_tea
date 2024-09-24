@@ -14,7 +14,7 @@
                         <!-- Конец разметки корзины -->
                     {% if carts %}
                         <div class="modal-footer">
-                            <a class="order-link-button p-1 m-0 fs-4" href="/orders/create_order.html">Перейти до
+                            <a class="order-link-button p-1 m-0 fs-4" href="{% url 'order:create_order' %}">Перейти до
                                 оформлення</a>
                         </div>
                     {% endif %}
