@@ -58,3 +58,9 @@
         <h4 class="float-left m-0"><strong>{{ carts.total_price }} грн</strong></h4>
     </div>
 </div>
+
+{% if carts and not orders %}
+    <div class="modal-footer">
+        <a class="order-link-button p-1 m-0" href="{% url 'order:create_order' %}">Перейти до оформлення</a>
+    </div>
+{% endif %}

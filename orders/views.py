@@ -1,3 +1,4 @@
+from django.contrib.auth.decorators import login_required
 from django.shortcuts import render
 from django.contrib import messages
 from django.shortcuts import redirect
@@ -9,6 +10,7 @@ from orders.models import Order, OrderItem
 from carts.models import Cart
 
 
+@login_required
 def create_order(request):
     if request.method == "POST":
         form = CreateOrderForm(data=request.POST)
@@ -66,6 +68,7 @@ def create_order(request):
     context = {
         "title": "Створити замовлення",
         "form": form,
+        "orders": True,
     }
     return render(
         request=request,
