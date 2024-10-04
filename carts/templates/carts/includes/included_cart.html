@@ -59,7 +59,7 @@
     </div>
 </div>
 
-{% if carts and not orders %}
+{% if carts and not order %}
     <div class="modal-footer">
         <a class="order-link-button p-1 m-0" href="{% url 'order:create_order' %}">Перейти до оформлення</a>
     </div>

@@ -17,7 +17,7 @@
                     <h3 class="card-title text-center fs-2">Детальніше о замовлені</h3>
                     <div class="card bg-accordion m-3" style="border: 3px solid black;">
                         <div class="card-body">
-                            <form action="{% url 'order:create_order' %}" method="post">
+                            <form action="{% url "orders:create_order" %}" method="post" id="create_order_form">
                                 {% csrf_token %}
                                 <div class="row">
                                     <div class="col-md-6 mt-3">
@@ -49,10 +49,13 @@
                                                id="id_phone_number" name="phone_number"
                                                value="{% if form.phone_number.value %}
                                                       {{ form.phone_number.value }}{% endif %}"
-                                               placeholder="В форматі: XXX-XXX-XX-XX" required>
+                                               placeholder="(000) 000-0000" required>
                                         {% if form.phone_number.errors %}
                                             <div class="alert alert-danger alert-dismissible fade show">{{ form.phone_number.errors }}</div>
                                         {% endif %}
+                                        <div class="alert alert-danger alert-dismissible fade show"
+                                             style="display: none" id="phone_number_error">Неверный формат номера
+                                        </div>
                                     </div>
                                     <div class="col-md-12 mt-3">
                                         <label for="delivery" class="form-label fs-5">Оберіть спосіб
@@ -78,30 +81,30 @@
                                             <div class="alert alert-danger alert-dismissible fade show">{{ form.delivery_address.errors }}</div>
                                         {% endif %}
                                     </div>
-{#                                    <div class="col-md-12 mt-3">#}
-{#                                        <label for="delivery" class="form-label fs-5">Оберіть спосіб доставки: </label>#}
-{#                                        <div class="form-check form-check-inline">#}
-{#                                            <input class="form-check-input mx-2 fs-5" type="radio" name="requires_delivery"#}
-{#                                                   id="id_requires_delivery" value="1" checked>#}
-{#                                            <label class="form-check-label" for="id_requires_delivery">Новою поштою</label>#}
-{#                                        </div>#}
-{#                                        <div class="form-check form-check-inline mx-2 fs-5">#}
-{#                                            <input class="form-check-input" type="radio" name="requires_delivery"#}
-{#                                                   id="id_requires_delivery" value="0">#}
-{#                                            <label class="form-check-label" for="id_requires_delivery">Самовивіз</label>#}
-{#                                        </div>#}
-{#                                    </div>#}
-{#                                    <div class="mb-3" id="deliveryAddressField">#}
-{#                                        <label for="id_delivery_address" class="form-label">Адрес#}
-{#                                            доставки:</label>#}
-{#                                        <textarea class="form-control bg-login" id="id_delivery_address"#}
-{#                                                  {% if form.delivery_address.value %}#}
-{#                                                  {{ form.delivery_address.value }}{% endif %}#}
-{#                                                  name="delivery_address" rows="2"></textarea>#}
-{#                                        {% if form.delivery_address.errors %}#}
-{#                                            <div class="alert alert-danger alert-dismissible fade show">{{ form.delivery_address.errors }}</div>#}
-{#                                        {% endif %}#}
-{#                                    </div>#}
+                                    {#                                    <div class="col-md-12 mt-3">#}
+                                    {#                                        <label for="delivery" class="form-label fs-5">Оберіть спосіб доставки: </label>#}
+                                    {#                                        <div class="form-check form-check-inline">#}
+                                    {#                                            <input class="form-check-input mx-2 fs-5" type="radio" name="requires_delivery"#}
+                                    {#                                                   id="id_requires_delivery" value="1" checked>#}
+                                    {#                                            <label class="form-check-label" for="id_requires_delivery">Новою поштою</label>#}
+                                    {#                                        </div>#}
+                                    {#                                        <div class="form-check form-check-inline mx-2 fs-5">#}
+                                    {#                                            <input class="form-check-input" type="radio" name="requires_delivery"#}
+                                    {#                                                   id="id_requires_delivery" value="0">#}
+                                    {#                                            <label class="form-check-label" for="id_requires_delivery">Самовивіз</label>#}
+                                    {#                                        </div>#}
+                                    {#                                    </div>#}
+                                    {#                                    <div class="mb-3" id="deliveryAddressField">#}
+                                    {#                                        <label for="id_delivery_address" class="form-label">Адрес#}
+                                    {#                                            доставки:</label>#}
+                                    {#                                        <textarea class="form-control bg-login" id="id_delivery_address"#}
+                                    {#                                                  {% if form.delivery_address.value %}#}
+                                    {#                                                  {{ form.delivery_address.value }}{% endif %}#}
+                                    {#                                                  name="delivery_address" rows="2"></textarea>#}
+                                    {#                                        {% if form.delivery_address.errors %}#}
+                                    {#                                            <div class="alert alert-danger alert-dismissible fade show">{{ form.delivery_address.errors }}</div>#}
+                                    {#                                        {% endif %}#}
+                                    {#                                    </div>#}
                                     <div class="col-md-12 mb-3">
                                         <label class="form-label fs-5">Оберіть опосіб оплати:</label>
                                         <div class="form-check form-check-inline">

@@ -20,7 +20,7 @@ class Categories(models.Model):
         db_table = "Category"
         verbose_name = "Категрію"
         verbose_name_plural = "Категорії"
-        ordering = ["id"]
+        ordering = ("id",)
 
     def __str__(self):
         return self.name

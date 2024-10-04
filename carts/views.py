@@ -3,6 +3,7 @@ from django.template.loader import render_to_string
 from carts.utils import get_user_carts
 from goods.models import Products
 from carts.models import Cart
+from django.urls import reverse
 
 
 def cart_add(request):
@@ -56,16 +57,25 @@ def cart_change(request):
     cart.quantity = quantity
     cart.save()
 
-    cart = get_user_carts(request)
+    user_cart = get_user_carts(request)
+
+    context = {"carts": user_cart}
+
+    # if referer page is create_order add key orders: True to context
+    referer = request.META.get("HTTP_REFERER")
+    if reverse("orders:create_order") in referer:
+        context["order"] = True
+
     cart_items_html = render_to_string(
         "carts/includes/included_cart.html",
-        {"carts": cart},
+        context,
         request=request,
     )
+
     response_data = {
         "message": "Кількіть товару було зміненно",
         "cart_items_html": cart_items_html,
-        "quantity_deleted": quantity,
+        "quantity": quantity,
     }
 
     return JsonResponse(response_data)
@@ -79,9 +89,17 @@ def cart_remove(request):
     cart.delete()
 
     user_cart = get_user_carts(request)
+
+    context = {"carts": user_cart}
+
+    # if referer page is create_order add key orders: True to context
+    referer = request.META.get("HTTP_REFERER")
+    if reverse("orders:create_order") in referer:
+        context["order"] = True
+
     cart_items_html = render_to_string(
         "carts/includes/included_cart.html",
-        {"carts": user_cart},
+        context,
         request=request,
     )
     response_data = {
