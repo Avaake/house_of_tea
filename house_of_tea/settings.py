@@ -41,7 +41,7 @@ INSTALLED_APPS = [
     "goods.apps.GoodsConfig",
     "users.apps.UsersConfig",
     "carts.apps.CartsConfig",
-    "orders.apps.OrdersConfig"
+    "orders.apps.OrdersConfig",
 ]
 
 MIDDLEWARE = [
@@ -144,3 +144,4 @@ INTERNAL_IPS = [
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 AUTH_USER_MODEL = "users.User"
 LOGIN_URL = "/user/login/"
+LOGIN_REDIRECT_URL = "/"
