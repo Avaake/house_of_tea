@@ -111,10 +111,3 @@ class UsersCartView(TemplateView):
         context = super().get_context_data(**kwargs)
         context["title"] = "HoT - Кошик"
         return context
-
-
-@login_required
-def logout(request):
-    messages.success(request, f"{request.user.username}, Всього гарного.")
-    auth.logout(request)
-    return redirect(reverse("main:index"))
