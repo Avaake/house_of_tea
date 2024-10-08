@@ -1,10 +1,9 @@
 from django.contrib import auth, messages
 from django.contrib.auth.mixins import LoginRequiredMixin
-from django.contrib.auth.views import LoginView, LogoutView
+from django.contrib.auth.views import LoginView
 from django.db.models import Prefetch
 from django.http import HttpResponseRedirect
-from django.shortcuts import render, redirect
-from django.urls import reverse, reverse_lazy
+from django.urls import reverse_lazy
 from django.views.generic import CreateView, UpdateView, TemplateView
 
 from users.forms import UserLoginForm, UserRegisterForm, ProfileForm
