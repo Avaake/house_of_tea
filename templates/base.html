@@ -61,11 +61,14 @@
                              alt="" style="width: 35px;">
                     </a>
                 {% else %}
-                    <a href="{% url 'users:logout' %}">
-                        <img class="logio-logo mx-2"
-                             src="{% static 'source/images/logout_26dp_000000_FILL0_wght400_GRAD0_opsz24.png' %}"
-                             alt="" style="width: 35px;">
-                    </a>
+                    <form action="{% url 'users:logout' %}" method="post">
+                        {% csrf_token %}
+                        <button type="submit" style="border: none; background: none;" class="p-0">
+                            <img class="logio-logo mx-2"
+                                 src="{% static 'source/images/logout_26dp_000000_FILL0_wght400_GRAD0_opsz24.png' %}"
+                                 alt="Logout" style="width: 35px;">
+                        </button>
+                    </form>
                 {% endif %}
                 <form class="d-flex" role="search" action="{% url 'catalog:sreach' %}" method="get">
                     <input class="form-control me-2 p-0 px-1" style="width: 200px;" type="search"
@@ -102,7 +105,7 @@
                 </div>
                 <!-- Разметка модального окна корзины -->
                 {% block modal_cart %}
-                	
+
                 {% endblock %}
                 <!-- Закончилась разметка модального окна -->
 
